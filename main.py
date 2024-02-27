@@ -7,21 +7,26 @@ import streamlit as st
 
 st.title("Sweet style")
 
-option = st.selectbox("What would you like to generate?",
-                     ['Text', 'Image'])
+st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
-if option == "Text":
-  prompt = st.chat_input("Enter your text prompt here")
-  if st.button('Submit') and not prompt:
-    st.warning("Please write a prompt", icon="⚠️")
-  else:
-    # client = OpenAI(api_key=st.secrets[OPENAI_API_KEY])
-    pass
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+if prompt := st.chat_input("What is up?"):
+  with st.chat_message("user"):
+        st.markdown(prompt)
+  st.session_state.messages.append({"role": "user", "content": prompt})
+
+response = "Ha"
+with st.chat_message("assistant"):
+    st.markdown(response)
+st.session_state.messages.append({"role": "assistant", "content": response})
+
+
+
     
-      
-# elif option == "Image":
-#   prompt = st.text_input("Enter your image prompt here", "")
-#   if st.button('Submit') and not prompt:
-#     st.warning("Please write a prompt", icon="⚠️")
-#   else:
-#     pass
+
