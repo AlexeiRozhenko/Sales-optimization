@@ -10,7 +10,7 @@ st.header("Sweet style")
 
 # st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
-if "messages" not in st.session_state:
+if messages not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "Hello! How can I help you?"}]
 
 for message in st.session_state.messages:
