@@ -7,7 +7,7 @@ import streamlit as st
 
 st.title("Sweet style")
 
-st.set_page_config(page_title="AI-assistant", page_icon="📊")
+# st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
