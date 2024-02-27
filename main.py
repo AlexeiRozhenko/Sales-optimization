@@ -4,7 +4,7 @@
 # from langchain_experimental.llms import ChatLlamaAPI
 
 import streamlit as st
-from openai import OpenAI
+import openai import OpenAI
 
 st.header("Sweet style")
 
@@ -22,7 +22,7 @@ if prompt := st.chat_input("Enter your prompt here"):
         st.markdown(prompt)
   st.session_state.messages.append({"role": "user", "content": prompt})
 
-openai.api_key = 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
+openai.api_key = "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"
 response = openai.ChatCompletion.create(model = 'gpt-3.5-turbo', temperature = 1, 
                                         messages = [f"{{'role': 'user', 'content': '{message}'}}"])
 msg = response.choices[0]["message"]["content"]
