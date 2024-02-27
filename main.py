@@ -10,13 +10,13 @@ st.title("Sweet style")
 # st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
+    st.session_state["messages"] = [{"role": "assistant", "content": "Hello! How can I help you?"}]
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("Enter your prompt here"):
   with st.chat_message("user"):
         st.markdown(prompt)
   st.session_state.messages.append({"role": "user", "content": prompt})
