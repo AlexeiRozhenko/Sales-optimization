@@ -21,9 +21,13 @@ if prompt := st.chat_input("Enter your prompt here"):
         st.markdown(prompt)
   st.session_state.messages.append({"role": "user", "content": prompt})
 
-response = "Ha"
+openai.api_key = "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"
+response = openai.ChatCompletion.create(model = 'gpt-3.5-turbo', temperature = 1, 
+                                        messages = [f"{{'role': 'user', 'content': '{message}'}}"])
+msg = response.choices[0]["message"]["content"]
+
 with st.chat_message("assistant"):
-    st.markdown(response)
+    st.markdown(msg)
 st.session_state.messages.append({"role": "assistant", "content": response})
 
 
