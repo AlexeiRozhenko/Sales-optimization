@@ -1,9 +1,12 @@
-import streamlit as st
-from llamaapi import LlamaAPI
-from langchain_experimental.llms import ChatLlamaAPI
+# llama = LlamaAPI("LL-D0am6EV0l1IeshE15ysSrlPMpqr5Z6rxxaBVgo2bcTvahIR2NZBWhrzkZpPbzoOP")
+# model = ChatLlamaAPI(client=llama)
+# from llamaapi import LlamaAPI
+# from langchain_experimental.llms import ChatLlamaAPI
 
-llama = LlamaAPI("LL-D0am6EV0l1IeshE15ysSrlPMpqr5Z6rxxaBVgo2bcTvahIR2NZBWhrzkZpPbzoOP")
-model = ChatLlamaAPI(client=llama)
+import streamlit as st
+import openai
+
+openai.api_key = 
 
 st.title("Sweet style")
 
