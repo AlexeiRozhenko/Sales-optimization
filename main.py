@@ -5,7 +5,7 @@
 
 import streamlit as st
 
-st.title("Sweet style")
+st.header("Sweet style")
 
 # st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
