@@ -6,15 +6,15 @@ model = st.selectbox("What would you like to generate?",
                      ['Text', 'Image'])
 
 if model == "Text":
-  prompt = st.text_input("Enter your prompt here", "")
+  prompt = st.text_input("Enter your text prompt here", "")
   if st.button('Submit') and not prompt:
     st.warning("Please enter a prompt", icon="⚠️")
   else:
     pass
       
 elif model == "Image":
-  prompt = st.text_input("Enter your prompt here", "")
+  prompt = st.text_input("Enter your image prompt here", "")
   if st.button('Submit') and not prompt:
     st.warning("Please enter a prompt", icon="⚠️")
-  if st.button('Submit'):
-      pass
+  else:
+    pass
