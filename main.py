@@ -4,12 +4,13 @@ st.title("Sweet style")
 
 model = st.selectbox("What would you like to generate?",
                      ['Text', 'Image'])
-if model == "Text":
-    prompt = st.text_input("Enter your prompt here", "")
-    if st.button('Submit'):
-        pass
-      
-if model == "Image":
-    prompt = st.text_input("Enter your prompt here", "")
-    if st.button('Submit'):
-        pass
+with model:
+    if model == "Text":
+        prompt = st.text_input("Enter your prompt here", "")
+        if st.button('Submit'):
+            pass
+          
+    if model == "Image":
+        prompt = st.text_input("Enter your prompt here", "")
+        if st.button('Submit'):
+            pass
