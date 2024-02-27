@@ -11,7 +11,7 @@ option = st.selectbox("What would you like to generate?",
                      ['Text', 'Image'])
 
 if option == "Text":
-  prompt = st.text_input("Enter your text prompt here", "")
+  prompt = st.chat_input("Enter your text prompt here")
   if st.button('Submit') and not prompt:
     st.warning("Please write a prompt", icon="⚠️")
   else:
@@ -19,9 +19,9 @@ if option == "Text":
     pass
     
       
-elif option == "Image":
-  prompt = st.text_input("Enter your image prompt here", "")
-  if st.button('Submit') and not prompt:
-    st.warning("Please write a prompt", icon="⚠️")
-  else:
-    pass
+# elif option == "Image":
+#   prompt = st.text_input("Enter your image prompt here", "")
+#   if st.button('Submit') and not prompt:
+#     st.warning("Please write a prompt", icon="⚠️")
+#   else:
+#     pass
