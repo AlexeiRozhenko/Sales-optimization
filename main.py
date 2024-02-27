@@ -14,5 +14,7 @@ if model == "Text":
       
 elif model == "Image":
   prompt = st.text_input("Enter your prompt here", "")
+  if st.button('Submit') and not prompt:
+    st.warning("Please enter a prompt", icon="⚠️")
   if st.button('Submit'):
       pass
