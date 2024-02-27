@@ -4,9 +4,7 @@
 # from langchain_experimental.llms import ChatLlamaAPI
 
 import streamlit as st
-import openai
-
-openai.api_key = 
+from openai import OpenAI
 
 st.title("Sweet style")
 
@@ -18,7 +16,9 @@ if option == "Text":
   if st.button('Submit') and not prompt:
     st.warning("Please write a prompt", icon="⚠️")
   else:
+    # client = OpenAI(api_key=st.secrets[OPENAI_API_KEY])
     pass
+    
       
 elif option == "Image":
   prompt = st.text_input("Enter your image prompt here", "")
