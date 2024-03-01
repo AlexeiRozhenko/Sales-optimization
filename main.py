@@ -4,7 +4,7 @@
 # from langchain_experimental.llms import ChatLlamaAPI
 
 import streamlit as st
-from openai import OpenAI
+import openai
 
 st.header("Sweet style")
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
