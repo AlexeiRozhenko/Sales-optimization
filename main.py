@@ -4,11 +4,10 @@
 # from langchain_experimental.llms import ChatLlamaAPI
 
 import streamlit as st
-# import openai
 from openai import OpenAI
 
 st.header("Sweet style")
-
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 # st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
 if messages not in st.session_state:
