@@ -4,7 +4,7 @@
 # from langchain_experimental.llms import ChatLlamaAPI
 
 import streamlit as st
-import openai
+# import openai
 from openai import OpenAI
 
 st.header("Sweet style")
