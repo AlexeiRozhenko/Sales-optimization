@@ -19,17 +19,16 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 if prompt := st.chat_input("Enter your prompt here"):
-  with st.chat_message("user"):
+    with st.chat_message("user"):
         st.markdown(prompt)
-  st.session_state.messages.append({"role": "user", "content": prompt})
+    st.session_state.messages.append({"role": "user", "content": prompt})
 
 with st.chat_message("assistant"):
-    msg = client.chat.completions.create(model='gpt-3.5',
+    msg = client.chat.completions.create(
+            model='gpt-3.5',
             messages=[
-                {"role": m["role"], "content": m["content"]}
-                for m in st.session_state.messages
-            ],
-            stream=True,
+            {"role": message["role"], "content": message["content"]}
+            for m in st.session_state.messages],stream=True,
         )
     st.markdown(msg)
 st.session_state.messages.append({"role": "assistant", "content": msg})
