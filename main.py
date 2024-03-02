@@ -24,7 +24,7 @@ if prompt := st.chat_input("Enter your prompt here"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
 with st.chat_message("assistant"):
-    msg = client.chat.completions.create(
+    stream = client.chat.completions.create(
             model='gpt-3.5-turbo',
             messages=[
             {"role": message["role"], "content": message["content"]}
