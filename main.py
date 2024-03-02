@@ -7,9 +7,9 @@
 import streamlit as st
 import openai
 from openai import OpenAI
-openai_apikey = st.secrets["openai_apikey"]
+key = st.secrets["KEY"]
 st.header("Sweet style")
-client = OpenAI(api_key=openai_apikey)
+client = OpenAI(api_key=key)
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "Hello! How can I help you?"}]
