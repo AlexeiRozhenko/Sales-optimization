@@ -24,7 +24,7 @@ if prompt := st.chat_input("Enter your prompt here"):
   st.session_state.messages.append({"role": "user", "content": prompt})
 
 openai.api_key = "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"
-response = client.completions.create(model = 'gpt-3.5-turbo', prompt=prompt,
+response = client.completions.create(model = 'gpt-3.5-turbo',
                                         messages = [f"{{'role': 'user', 'content': '{message}'}}"])
 msg = response.choices[0]["message"]["content"]
 
