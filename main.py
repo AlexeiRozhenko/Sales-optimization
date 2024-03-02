@@ -9,7 +9,7 @@ import openai
 from openai import OpenAI
 
 st.header("Sweet style")
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = OpenAI(api_key=st.secrets[OPENAI_API_KEY])
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "Hello! How can I help you?"}]
