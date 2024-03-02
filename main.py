@@ -5,6 +5,7 @@
 
 import streamlit as st
 import openai
+from openai import OpenAI
 
 st.header("Sweet style")
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
