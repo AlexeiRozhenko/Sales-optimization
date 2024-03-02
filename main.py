@@ -2,6 +2,7 @@
 # model = ChatLlamaAPI(client=llama)
 # from llamaapi import LlamaAPI
 # from langchain_experimental.llms import ChatLlamaAPI
+# st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
 import streamlit as st
 import openai
@@ -9,7 +10,6 @@ from openai import OpenAI
 
 st.header("Sweet style")
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-# st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "Hello! How can I help you?"}]
@@ -24,7 +24,7 @@ if prompt := st.chat_input("Enter your prompt here"):
   st.session_state.messages.append({"role": "user", "content": prompt})
 
 openai.api_key = "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"
-response = openai.ChatCompletion.create(model = 'gpt-3.5-turbo', temperature = 1, 
+response = client.chat.completions.create(model = 'gpt-3.5-turbo', 
                                         messages = [f"{{'role': 'user', 'content': '{message}'}}"])
 msg = response.choices[0]["message"]["content"]
 
