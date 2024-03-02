@@ -30,7 +30,8 @@ with st.chat_message("assistant"):
             {"role": message["role"], "content": message["content"]}
             for m in st.session_state.messages], stream=True,
         )
-    response = st.write_stream(stream)
+    response = st.write_stream(stream["choices"][0]["message"]["content"])
+    
 st.session_state.messages.append({"role": "assistant", "content": response})
 
 
