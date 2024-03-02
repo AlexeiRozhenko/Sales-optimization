@@ -11,7 +11,7 @@ st.header("Sweet style")
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 # st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
-if messages not in st.session_state:
+if "messages" not in st.session_state.keys():
     st.session_state["messages"] = [{"role": "assistant", "content": "Hello! How can I help you?"}]
 
 for message in st.session_state.messages:
