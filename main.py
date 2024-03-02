@@ -30,7 +30,7 @@ msg = response.choices[0]["message"]["content"]
 
 with st.chat_message("assistant"):
     st.markdown(msg)
-st.session_state.messages.append({"role": "assistant", "content": response})
+st.session_state.messages.append({"role": "assistant", "content": msg})
 
 
 
