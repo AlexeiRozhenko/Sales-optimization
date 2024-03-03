@@ -7,8 +7,6 @@ import streamlit as st
 import openai
 from openai import OpenAI
 
-st.set_page_config(page_title="AI-assistant", page_icon="📊")
-st.header("Sweet style")
 # key = st.secrets["KEY"]
 # client = OpenAI(api_key=key)
 
