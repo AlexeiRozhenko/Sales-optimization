@@ -7,9 +7,11 @@
 import streamlit as st
 import openai
 from openai import OpenAI
-key = st.secrets["KEY"]
+
+st.set_page_config(page_title="AI-assistant", page_icon="📊")
 st.header("Sweet style")
-client = OpenAI(api_key=key)
+# key = st.secrets["KEY"]
+# client = OpenAI(api_key=key)
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "Hello! How can I help you?"}]
@@ -24,13 +26,13 @@ if prompt := st.chat_input("Enter your prompt here"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
 with st.chat_message("assistant"):
-    stream = client.chat.completions.create(
-            model='gpt-3.5-turbo',
-            messages=[
-            {"role": message["role"], "content": message["content"]}
-            for m in st.session_state.messages], stream=True,
-        )
-    response = st.write_stream(stream["choices"][0]["message"]["content"])
+    # stream = client.chat.completions.create(
+    #         model='gpt-3.5-turbo',
+    #         messages=[
+    #         {"role": message["role"], "content": message["content"]}
+    #         for m in st.session_state.messages], stream=True,
+    #     )
+    # response = st.write_stream(stream["choices"][0]["message"]["content"])
     
 st.session_state.messages.append({"role": "assistant", "content": response})
 
