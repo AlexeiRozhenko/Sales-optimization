@@ -36,6 +36,9 @@ if prompt := st.chat_input("Enter your prompt here"):
     
 # st.session_state.messages.append({"role": "assistant", "content": response})
 
+st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
+
+
 
 
     
