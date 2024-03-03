@@ -2,7 +2,6 @@
 # model = ChatLlamaAPI(client=llama)
 # from llamaapi import LlamaAPI
 # from langchain_experimental.llms import ChatLlamaAPI
-# st.set_page_config(page_title="AI-assistant", page_icon="📊")
 
 import streamlit as st
 import openai
@@ -35,8 +34,6 @@ if prompt := st.chat_input("Enter your prompt here"):
 #     # response = st.write_stream(stream["choices"][0]["message"]["content"])
     
 # st.session_state.messages.append({"role": "assistant", "content": response})
-
-st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
 
 
 
