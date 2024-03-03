@@ -25,16 +25,16 @@ if prompt := st.chat_input("Enter your prompt here"):
         st.markdown(prompt)
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-with st.chat_message("assistant"):
-    # stream = client.chat.completions.create(
-    #         model='gpt-3.5-turbo',
-    #         messages=[
-    #         {"role": message["role"], "content": message["content"]}
-    #         for m in st.session_state.messages], stream=True,
-    #     )
-    # response = st.write_stream(stream["choices"][0]["message"]["content"])
+# with st.chat_message("assistant"):
+#     # stream = client.chat.completions.create(
+#     #         model='gpt-3.5-turbo',
+#     #         messages=[
+#     #         {"role": message["role"], "content": message["content"]}
+#     #         for m in st.session_state.messages], stream=True,
+#     #     )
+#     # response = st.write_stream(stream["choices"][0]["message"]["content"])
     
-st.session_state.messages.append({"role": "assistant", "content": response})
+# st.session_state.messages.append({"role": "assistant", "content": response})
 
 
 
