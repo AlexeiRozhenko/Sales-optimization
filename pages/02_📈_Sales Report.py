@@ -5,12 +5,12 @@ import plotly.express as px
 st.set_page_config(page_title="Sales report", page_icon="📈")
 
 with open('sample_file.xlsx','rb') as file:
-st.download_button(
-                  label= 'Download Sample File',
-                  file_name='sample_file.xlsx',
-                  data=file,
-                  use_container_width=True
-                  )
+  st.download_button(
+                    label= 'Download Sample File',
+                    file_name='sample_file.xlsx',
+                    data=file,
+                    use_container_width=True
+                    )
 
 uploaded_file = st.file_uploader("Choose an XLSX file", accept_multiple_files=False)
 if uploaded_file is not None:
