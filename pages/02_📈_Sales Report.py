@@ -4,10 +4,11 @@ import plotly.express as px
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
 
+with open('sample_file.xlsx','rb') as file:
 st.download_button(
                   label= 'Download Sample File',
                   file_name='sample_file.xlsx',
-                  data=fb,
+                  data=file,
                   use_container_width=True
                   )
 
