@@ -7,7 +7,7 @@ st.set_page_config(page_title="Sales report", page_icon="📈")
 
 with open('sample_table.xlsx','r') as file:
   st.download_button(label= 'Download Sample File',
-                    file_name='sample_file.xlsx',
+                    file_name='sample_table.xlsx',
                     data=file,
                     use_container_width=True)
 
