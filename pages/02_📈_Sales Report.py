@@ -5,7 +5,7 @@ import os
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
 
-with open('Sales-optimization/pages/sample_file.xlsx','r') as file:
+with open(os.path.join('pages','sample_file.xlsx'),'r') as file:
   st.download_button(label= 'Download Sample File',
                     file_name='sample_file.xlsx',
                     data=file,
