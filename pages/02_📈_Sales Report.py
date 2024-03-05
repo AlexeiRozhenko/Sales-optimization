@@ -8,5 +8,5 @@ with st.sidebar:
   if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file)
   else:
-    st.warning('You haven't uploaded a file yet', icon="⚠️")
+    st.warning('You have not uploaded a file yet', icon="⚠️")
 
