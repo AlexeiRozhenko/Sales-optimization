@@ -17,10 +17,13 @@ with st.sidebar:
               file_name='sample_table.xlsx',
               data=file,
               use_container_width=False)
-  
   uploaded_file = st.file_uploader("Choose an XLSX file", accept_multiple_files=False)
+  
 if uploaded_file is not None:
   df = pd.read_excel(uploaded_file)
+  df['date'] = pd.to_datetime(df['date'])
+  df.sort_values(by='date')
+  
   with st.expander("Data preview"):
     st.dataframe(df.head())
   sales_chart(df, df["date"], df["sales"], "Sales changes")
