@@ -17,5 +17,7 @@ with st.sidebar:
   uploaded_file = st.file_uploader("Choose an XLSX file", accept_multiple_files=False)
 if uploaded_file is not None:
   df = pd.read_excel(uploaded_file)
+
+with st.expander("Data preview"):
   st.dataframe(df)
 
