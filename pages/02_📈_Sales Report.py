@@ -12,7 +12,7 @@ def sales_chart(df, title):
   df_new = df_new.reset_index()
   x_axis, y_axis = "date", "sales"
   fig = px.line(df_new, x=x_axis, y=y_axis, 
-                title=title, height=300))
+                title=title, height=300)
   st.plotly_chart(fig, use_container_width=True)
   
 with st.sidebar:
