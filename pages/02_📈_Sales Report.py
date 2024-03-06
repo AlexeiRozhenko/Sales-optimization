@@ -13,7 +13,7 @@ def load_data(name, mode):
       return file
   
 with st.sidebar:
-  load_data('sample_table.xlsx','rb'):
+  load_data('sample_table.xlsx','rb')
     st.download_button(label= 'Download Sample File',
                       file_name='sample_table.xlsx',
                       data=file,
