@@ -5,7 +5,7 @@ import openpyxl
 import os
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
-st.title("Sales report")
+st.title("Sales BI-dashboard")
 
 with st.sidebar:
   with open('sample_table.xlsx','rb') as file:
