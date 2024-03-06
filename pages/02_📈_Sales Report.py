@@ -14,10 +14,10 @@ def load_data(name, mode):
   
 with st.sidebar:
   load_data('sample_table.xlsx','rb')
-    st.download_button(label= 'Download Sample File',
-                      file_name='sample_table.xlsx',
-                      data=file,
-                      use_container_width=False)
+  st.download_button(label= 'Download Sample File',
+                  file_name='sample_table.xlsx',
+                  data=file,
+                  use_container_width=False)
   
   uploaded_file = st.file_uploader("Choose an XLSX file", accept_multiple_files=False)
 if uploaded_file is not None:
