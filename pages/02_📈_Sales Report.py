@@ -9,7 +9,7 @@ st.header("Sales report")
 
 def sales_chart(df, x_axis, y_axis, title):
   df_date = df.groupby([df['date']]).sum()
-  fig = px.line(df_date, x=f"df_date[x_axis]", y=f"df_date[y_axis]", title=title)
+  fig = px.line(df_date, x=df_date[x_axis], y=df_date[y_axis], title=title)
   st.plotly_chart(fig, use_container_width=True)
   
 with st.sidebar:
@@ -30,5 +30,5 @@ if uploaded_file is not None:
   with st.expander("Data preview"):
     st.dataframe(df.head())
     
-  sales_chart(df, df["date"], df["sales"], "Sales changes")
+  sales_chart(df, "date", "sales", "Sales changes")
 
