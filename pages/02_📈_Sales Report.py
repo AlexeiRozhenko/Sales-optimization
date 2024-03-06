@@ -19,5 +19,5 @@ if uploaded_file is not None:
   df = pd.read_excel(uploaded_file)
 
 with st.expander("Data preview"):
-  st.dataframe(df)
+  st.dataframe(df.head())
 
