@@ -6,7 +6,7 @@ import os
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
 
-with st.sidebar():
+with st.sidebar:
   with open('sample_table.xlsx','rb') as file:
     st.download_button(label= 'Download Sample File',
                       file_name='sample_table.xlsx',
