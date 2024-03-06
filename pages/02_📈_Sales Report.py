@@ -6,6 +6,10 @@ import os
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
+
+def sales_chart(data, x_axis, y_axis, title):
+  fig = px.line(data, x=x_axis, y=y_axis, title=title)
+  fig.show()
   
 with st.sidebar:
   with open('sample_table.xlsx','rb') as file:
@@ -19,4 +23,5 @@ if uploaded_file is not None:
   df = pd.read_excel(uploaded_file)
   with st.expander("Data preview"):
     st.dataframe(df.head())
+  sales_chart(df, df["date"], df["sales"], "Sales changes")
 
