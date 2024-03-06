@@ -8,8 +8,8 @@ st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
 def sales_chart(df, x_axis, y_axis, title):
-  df_line = df.groupby([df['date']]).sum()
-  fig = px.line(df_line, x=x_axis, y=y_axis, title=title)
+  df_date = df.groupby([df['date']]).sum()
+  fig = px.line(df_date, x=x_axis, y=y_axis, title=title)
   st.plotly_chart(fig, use_container_width=True)
   
 with st.sidebar:
