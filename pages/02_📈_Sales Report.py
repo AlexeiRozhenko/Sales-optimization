@@ -7,9 +7,10 @@ import os
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
-def sales_chart(df, x_axis, y_axis, title):
+def sales_chart(df, title):
   df_date = df.groupby([df['date']]).sum()
-  fig = px.line(df_date, x=df_date.x_axis, y=df_date.y_axis, title=title)
+  x_axis, y_axis = df_date["date"], df_date["sales"]
+  fig = px.line(df_date, x=x_axis, y=y_axis, title=title)
   st.plotly_chart(fig, use_container_width=True)
   
 with st.sidebar:
