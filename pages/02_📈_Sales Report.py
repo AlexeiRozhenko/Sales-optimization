@@ -9,7 +9,7 @@ st.header("Sales report")
 
 def sales_chart(data, x_axis, y_axis, title):
   fig = px.line(data, x=x_axis, y=y_axis, title=title)
-  return fig.show()
+  st.plotly_chart(fig, use_container_width=True)
   
 with st.sidebar:
   with open('sample_table.xlsx','rb') as file:
