@@ -31,5 +31,5 @@ if uploaded_file is not None:
   with st.expander("Data preview"):
     st.dataframe(df.head())
     
-  sales_chart(df, date, sales, "Sales changes")
+  sales_chart(df, "Sales changes")
 
