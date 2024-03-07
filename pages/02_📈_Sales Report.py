@@ -27,8 +27,8 @@ def sales_chart(df, title):
 def pie_chart(df, values, names, title):
   colors=["#84A59D", "#F7EDE2", "#F6BD60", "#E0B498", "#BAC78E"]
   filter = (df["date"] >= d[0]) or (df["date"] <= d[1])
-  df_pie = df_pie[filter]
-  fig = px.pie(df, values=values, names=names, title=title, color_discrete_sequence=colors)
+  df_new = df[filter]
+  fig = px.pie(df_new, values=values, names=names, title=title, color_discrete_sequence=colors)
   fig.update_layout(showlegend=False,
     width=350,
     height=350,
