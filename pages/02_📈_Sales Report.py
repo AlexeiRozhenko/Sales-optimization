@@ -10,6 +10,7 @@ st.header("Sales report")
 def date_choice():
    date = st.date_input(
     "Select the intervals",
+    ("today"),
     format="MM.DD.YYYY"
    )
 
@@ -54,7 +55,7 @@ if uploaded_file is not None:
   
   with st.expander("Data preview"):
     st.dataframe(df.head())
-    date_choice
+    date_choice()
 
   #first row of graphs
   sales_chart(df, "Sales changes")
