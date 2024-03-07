@@ -47,12 +47,15 @@ if uploaded_file is not None:
   #second row of graphs
   col1, col2, col3 = st.columns(3)
   with col1:
-     pie_chart(df, "sales", "city", "Sales by city", ["#84A59D", "#F7EDE2", "#F6BD60"])
+     pie_chart(df, "sales", "city", "Sales by city", 
+               ["#84A59D", "#F7EDE2", "#F6BD60"])
   
   with col2:
-     pie_chart(df, "sales", "customer_type", "Sales by customers", ["#84A59D", "#F7EDE2", "#F6BD60"])
+     pie_chart(df, "sales", "customer_type", "Sales by customers", 
+               ["#84A59D", "#F7EDE2", "#F6BD60"])
   
   with col3:
-     pie_chart(df, "sales", "product_line", "Sales by product lines", ["#84A59D", "#F7EDE2", "#F6BD60"])
+     pie_chart(df, "sales", "product_line", "Sales by product lines", 
+               ["#84A59D", "#F7EDE2", "#F6BD60", "#C46D5E", "#C08497"])
 
 
