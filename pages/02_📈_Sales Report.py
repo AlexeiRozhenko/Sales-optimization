@@ -23,6 +23,7 @@ def pie_chart(df, values, names, title):
     height=280,
     legend=dict(
     font=dict(size=10), 
+    entrywidth=200
     orientation="h",
     y=-1,
     x=0
