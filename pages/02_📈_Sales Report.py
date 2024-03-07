@@ -26,8 +26,7 @@ def pie_chart(df, values, names, title):
     entrywidth=50,
     y=1.02,
     x=1
-))
-  )
+    ))
   fig.update_traces(textposition='inside')
   st.plotly_chart(fig, use_container_width=True)
   
