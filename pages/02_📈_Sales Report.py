@@ -1,7 +1,8 @@
 import streamlit as st 
 import pandas as pd
 import plotly.express as px
-import openpyxl, datetime
+from datetime import date
+import openpyxl
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
@@ -10,7 +11,7 @@ def date_choice():
    min_date = datetime.date(2020, 1, 1)
    date = st.date_input(
     "Select the intervals",
-    (min_date, datetime.datetime.today),
+    (min_date, date.today()),
     format="DD.MM.YYYY"
    )
 
