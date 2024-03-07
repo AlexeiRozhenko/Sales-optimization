@@ -9,7 +9,7 @@ st.header("Sales report")
 
 def date_choice():
    min_date = datetime.date(2020, 1, 1)
-   date = st.date_input(
+   d = st.date_input(
     "Select the intervals",
     (min_date, date.today()),
     format="DD.MM.YYYY"
