@@ -19,8 +19,8 @@ def pie_chart(df, values, names, title):
   colors=["#84A59D", "#F7EDE2", "#F6BD60", "#E0B498", "#BAC78E"]
   fig = px.pie(df, values=values, names=names, title=title, color_discrete_sequence=colors)
   fig.update_layout(showlegend=False,
-    # width=280,
-    # height=280,
+    width=280,
+    height=280,
     # legend=dict(
     # font=dict(size=10), 
     # entrywidth=70,
