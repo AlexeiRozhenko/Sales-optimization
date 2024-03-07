@@ -57,7 +57,7 @@ if uploaded_file is not None:
   min_date = datetime.date(2023, 1, 1)
   d = st.date_input(
   "Select the intervals",
-  (min_date, datetime.today()),
+  (min_date, datetime.now()),
   format="DD.MM.YYYY"
    )
    
