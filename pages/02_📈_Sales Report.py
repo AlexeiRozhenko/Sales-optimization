@@ -10,9 +10,8 @@ st.header("Sales report")
 def date_choice():
    date = st.date_input(
     "Select the intervals",
-    ("today"),
-    format="MM.DD.YYYY",
-)
+    format="MM.DD.YYYY"
+   )
 
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum()
