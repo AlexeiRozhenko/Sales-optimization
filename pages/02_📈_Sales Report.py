@@ -24,8 +24,8 @@ def pie_chart(df, values, names, title):
     legend=dict(
     font=dict(size=10), 
     entrywidth=100,
-    y=1.02,
-    x=1
+    y=0,
+    x=0.5
     ))
   fig.update_traces(textposition='inside')
   st.plotly_chart(fig, use_container_width=True)
