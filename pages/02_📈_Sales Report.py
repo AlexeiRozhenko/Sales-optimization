@@ -2,14 +2,14 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import openpyxl, datetime
-from datetime import date, datetime
+from datetime import date
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum().reset_index()
-  filter = (df_new["date"] >= datetime.combine(d[0], datetime.min.time())) or (df_new["date"] <= datetime.combine(d[1], datetime.min.time()))
+  filter = (df_new["date"] >= d[0]) or (df_new["date"] <= d[1])
   df_new = df_new[filter]
   x_axis, y_axis = "date", "sales"
   fig = px.line(df_new, x=x_axis, y=y_axis, 
@@ -18,7 +18,7 @@ def sales_chart(df, title):
 
 def pie_chart(df, values, names, title):
   colors=["#84A59D", "#F7EDE2", "#F6BD60", "#E0B498", "#BAC78E"]
-  filter = (df["date"] >= datetime.timestamp(d[0])) or (df["date"] <= datetime.timestamp(d[1]))
+  filter = (df["date"] >= d[0]) or (df["date"] <= d[1])
   df_new = df[filter]
   fig = px.pie(df_new, values=values, names=names, title=title, color_discrete_sequence=colors)
   fig.update_layout(showlegend=False,
