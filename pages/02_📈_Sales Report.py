@@ -23,6 +23,7 @@ def pie_chart(df, values, names, title):
     height=280,
     legend=dict(font=dict(size=10))
   )
+  fig.update_traces(textposition='inside')
   st.plotly_chart(fig, use_container_width=True)
   
 with st.sidebar:
