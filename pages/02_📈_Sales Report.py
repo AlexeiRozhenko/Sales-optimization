@@ -7,15 +7,6 @@ from datetime import date
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
-def date_choice():
-   global d
-   min_date = datetime.date(2023, 1, 1)
-   d = st.date_input(
-    "Select the intervals",
-    (min_date, date.today()),
-    format="DD.MM.YYYY"
-   )
-
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum().reset_index()
   filter = (df_new["date"] >= d[0]) or (df_new["date"] <= d[1])
@@ -61,11 +52,18 @@ if uploaded_file is not None:
   with st.expander("Data preview"):
     st.dataframe(df.head())
 
-  date_choice()
-  #first row of graphs
+  # choosing the suitable time interval
+  min_date = datetime.date(2023, 1, 1)
+  d = st.date_input(
+  "Select the intervals",
+  (min_date, date.today()),
+  format="DD.MM.YYYY"
+   )
+   
+  # first row of graphs
   sales_chart(df, "Sales changes")
 
-  #second row of graphs
+  # second row of graphs
   col1, col2, col3 = st.columns(3)
   with col1:
      pie_chart(df, "sales", "city", "Sales by city")
