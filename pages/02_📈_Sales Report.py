@@ -15,8 +15,13 @@ def sales_chart(df, title):
                 title=title, height=350)
   st.plotly_chart(fig, use_container_width=True)
 
-def pie_chart():
-  pass
+def pie_chart(df, values, names, title, colors):
+  fig = px.pie(df, values=values, names=names, title=title, color_discrete_sequence=colors)
+  fig.update_layout(
+    width=360,
+    height=360
+  )
+  st.plotly_chart(fig, use_container_width=True)
   
 with st.sidebar:
   with open('sample_table.xlsx','rb') as file:
@@ -42,12 +47,12 @@ if uploaded_file is not None:
   #second row of graphs
   col1, col2, col3 = st.columns(3)
   with col1:
-     st.image("https://static.streamlit.io/examples/cat.jpg")
+     pie_chart(df, "sales", "city", "Sales by city", ["#84A59D", "#F7EDE2", "#F6BD60"])
   
   with col2:
-     st.image("https://static.streamlit.io/examples/dog.jpg")
+     pie_chart(df, "sales", "customer_type", "Sales by customers", ["#84A59D", "#F7EDE2", "#F6BD60"])
   
   with col3:
-     st.image("https://static.streamlit.io/examples/owl.jpg")
+     pie_chart(df, "sales", "product_line", "Sales by product lines", ["#84A59D", "#F7EDE2", "#F6BD60"])
 
 
