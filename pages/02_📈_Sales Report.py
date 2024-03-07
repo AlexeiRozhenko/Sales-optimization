@@ -20,7 +20,8 @@ def pie_chart(df, values, names, title):
   fig = px.pie(df, values=values, names=names, title=title, color_discrete_sequence=colors)
   fig.update_layout(
     width=280,
-    height=280
+    height=280,
+    legend=dict(font=dict(size=10))
   )
   st.plotly_chart(fig, use_container_width=True)
   
