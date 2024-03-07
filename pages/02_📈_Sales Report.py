@@ -9,6 +9,7 @@ st.header("Sales report")
 
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum().reset_index()
+  d[0]
   filter = (df_new["date"] >= d[0]) or (df_new["date"] <= d[1])
   df_new = df_new[filter]
   x_axis, y_axis = "date", "sales"
@@ -56,7 +57,7 @@ if uploaded_file is not None:
   min_date = datetime.date(2023, 1, 1)
   d = st.date_input(
   "Select the intervals",
-  (min_date, date.today()),
+  (min_date, datetime.today()),
   format="DD.MM.YYYY"
    )
    
