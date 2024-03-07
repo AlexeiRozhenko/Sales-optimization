@@ -7,8 +7,8 @@ from datetime import date
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
-d = ""
 def date_choice():
+   global d
    min_date = datetime.date(2023, 1, 1)
    d = st.date_input(
     "Select the intervals",
