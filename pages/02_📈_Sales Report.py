@@ -7,9 +7,12 @@ import os
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
-@st.cache_data
-def cached_data(file):
-  return file
+def date_choice():
+   date = st.date_input(
+    "Select the intervals",
+    ("today"),
+    format="MM.DD.YYYY",
+)
 
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum()
@@ -42,7 +45,6 @@ with st.sidebar:
               data=file,
               use_container_width=False)
   uploaded_file = st.file_uploader("Choose an XLSX file", accept_multiple_files=False)
-  cached_data(uploaded_file)
   
 if uploaded_file is not None:
   
@@ -53,6 +55,7 @@ if uploaded_file is not None:
   
   with st.expander("Data preview"):
     st.dataframe(df.head())
+    date_choice
 
   #first row of graphs
   sales_chart(df, "Sales changes")
