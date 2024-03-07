@@ -56,8 +56,8 @@ if uploaded_file is not None:
   
   with st.expander("Data preview"):
     st.dataframe(df.head())
-    date_choice()
 
+  date_choice()
   #first row of graphs
   sales_chart(df, "Sales changes")
 
