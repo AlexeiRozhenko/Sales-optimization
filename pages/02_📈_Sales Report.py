@@ -8,7 +8,7 @@ st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
 def date_choice():
-   min_date = datetime.date(2020, 1, 1)
+   min_date = datetime.date(2023, 1, 1)
    d = st.date_input(
     "Select the intervals",
     (min_date, date.today()),
@@ -16,8 +16,9 @@ def date_choice():
    )
 
 def sales_chart(df, title):
-  df_new = df.groupby([df['date']]).sum()
-  df_new = df_new.reset_index()
+  df_new = df.groupby([df['date']]).sum().reset_index()
+  filter = (df_new["date"] >= d[0]) or (df_new["date"] <= d[1])
+  df_new = df_new[filter]
   x_axis, y_axis = "date", "sales"
   fig = px.line(df_new, x=x_axis, y=y_axis, 
                 title=title, height=350)
@@ -25,6 +26,8 @@ def sales_chart(df, title):
 
 def pie_chart(df, values, names, title):
   colors=["#84A59D", "#F7EDE2", "#F6BD60", "#E0B498", "#BAC78E"]
+  filter = (df["date"] >= d[0]) or (df["date"] <= d[1])
+  df_pie = df_pie[filter]
   fig = px.pie(df, values=values, names=names, title=title, color_discrete_sequence=colors)
   fig.update_layout(showlegend=False,
     width=350,
