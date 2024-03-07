@@ -7,9 +7,10 @@ st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
 def date_choice():
+   min_date = datetime.date(2020, 1, 1)
    date = st.date_input(
     "Select the intervals",
-    (datetime.datetime(2020, 1, 1), datetime.datetime.today),
+    (min_date, datetime.datetime.today),
     format="DD.MM.YYYY"
    )
 
