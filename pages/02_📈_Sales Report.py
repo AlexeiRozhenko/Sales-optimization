@@ -16,7 +16,7 @@ def sales_chart(df, title):
   st.plotly_chart(fig, use_container_width=True)
 
 def pie_chart(df, values, names, title):
-  colors=["#84A59D", "#F7EDE2", "#F6BD60", "#575761", "#CF8BA9"]
+  colors=["#84A59D", "#F7EDE2", "#F6BD60", "#C49C84", "#BAC78E"]
   fig = px.pie(df, values=values, names=names, title=title, color_discrete_sequence=colors)
   fig.update_layout(
     width=280,
