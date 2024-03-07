@@ -9,8 +9,7 @@ st.header("Sales report")
 
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum().reset_index()
-  d[0]
-  filter = (df_new["date"] >= datetime.timestamp(d[0])) or (df_new["date"] <= datetime.timestamp(d[1]))
+  filter = (df_new["date"] >= datetime.combine(d[0], datetime.min.time())) or (df_new["date"] <= datetime.combine(d[1], datetime.min.time()))
   df_new = df_new[filter]
   x_axis, y_axis = "date", "sales"
   fig = px.line(df_new, x=x_axis, y=y_axis, 
