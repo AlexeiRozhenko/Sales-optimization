@@ -9,8 +9,8 @@ st.header("Sales report")
 def date_choice():
    date = st.date_input(
     "Select the intervals",
-    (datetime.datetime(2020, 1, 1), "today"),
-    format="MM.DD.YYYY"
+    (datetime.datetime(1, 1, 2020), "today"),
+    format="DD.MM.YYYY"
    )
 
 def sales_chart(df, title):
