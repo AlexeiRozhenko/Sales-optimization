@@ -15,7 +15,8 @@ def sales_chart(df, title):
                 title=title, height=350)
   st.plotly_chart(fig, use_container_width=True)
 
-def pie_chart(df, values, names, title, colors):
+def pie_chart(df, values, names, title):
+  colors=["#84A59D", "#F7EDE2", "#F6BD60", "#575761", "#CF8BA9"]
   fig = px.pie(df, values=values, names=names, title=title, color_discrete_sequence=colors)
   fig.update_layout(
     width=280,
@@ -47,15 +48,12 @@ if uploaded_file is not None:
   #second row of graphs
   col1, col2, col3 = st.columns(3)
   with col1:
-     pie_chart(df, "sales", "city", "Sales by city", 
-               ["#84A59D", "#F7EDE2", "#F6BD60"])
+     pie_chart(df, "sales", "city", "Sales by city")
   
   with col2:
-     pie_chart(df, "sales", "customer_type", "Sales by customers", 
-               ["#84A59D", "#F7EDE2", "#F6BD60"])
+     pie_chart(df, "sales", "customer_type", "Sales by customers")
   
   with col3:
-     pie_chart(df, "sales", "product_line", "Sales by product lines", 
-               ["#84A59D", "#F7EDE2", "#F6BD60", "#C46D5E", "#C08497"])
+     pie_chart(df, "sales", "product_line", "Sales by product lines")
 
 
