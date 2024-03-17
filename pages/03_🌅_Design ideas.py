@@ -20,6 +20,6 @@ if st.button("Generate image"):
   image_bytes = query({
 	"inputs": f"{prompt}",})
   image = Image.open(io.BytesIO(image_bytes))
-  st.image(image, caption='Prompt result', width=400)
+  st.image(image, caption='Prompt result')
   
 
