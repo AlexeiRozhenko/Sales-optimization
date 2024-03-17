@@ -7,8 +7,9 @@ from PIL import Image
 #         'Which model would you like to use?',
 #         ('GigaChat', 'Another one (no Russian)'))
 # if option == "GigaChat":
+API_TOKEN = st.secrets["TOKEN"]
 API_URL = "https://api-inference.huggingface.co/models/digiplay/AbsoluteReality_v1.8.1"
-headers = {"Authorization": f"Bearer {st.secrets["TOKEN"]}"}
+headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
 def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
