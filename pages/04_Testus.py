@@ -19,7 +19,7 @@ if prompt := st.chat_input("Enter your prompt here"):
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            response = chat(prompt, hf_email, hf_pass) 
+            response = chat(messages) 
             st.markdown(response)
         message = {"role": "assistant", "content": response}
     st.session_state.messages.append({"role": "assistant", "content": response})
