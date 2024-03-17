@@ -67,7 +67,7 @@ if uploaded_file is not None:
 
   # second row of graphs
   col1, col2, col3 = st.columns(3)
-  if d:
+  if len(d) == 2:
     with col1:
        pie_chart(df, "sales", "city", "Sales by city")
   
