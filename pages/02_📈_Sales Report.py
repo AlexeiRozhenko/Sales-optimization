@@ -62,19 +62,19 @@ if uploaded_file is not None:
   d = [i.strftime("%Y-%m-%d") for i in d]
   d = pd.to_datetime(d)
    
-  # first row of graphs
-  sales_chart(df, "Sales changes")
-
-  # second row of graphs
-  col1, col2, col3 = st.columns(3)
   if d[2]:
-    with col1:
-       pie_chart(df, "sales", "city", "Sales by city")
+    # first row of graphs
+    sales_chart(df, "Sales changes")
+
+    # second row of graphs
+    col1, col2, col3 = st.columns(3)
+      with col1:
+         pie_chart(df, "sales", "city", "Sales by city")
   
-    with col2:
-       pie_chart(df, "sales", "customer_type", "Sales by customers")
+      with col2:
+         pie_chart(df, "sales", "customer_type", "Sales by customers")
   
-    with col3:
-       pie_chart(df, "sales", "product_line", "Sales by product lines")
+      with col3:
+         pie_chart(df, "sales", "product_line", "Sales by product lines")
 
 
