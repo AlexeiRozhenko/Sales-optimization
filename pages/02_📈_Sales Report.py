@@ -60,7 +60,7 @@ if uploaded_file is not None:
   format="DD.MM.YYYY"
    )
   d = [i.strftime("%Y-%m-%d") for i in d]
-  d = pd.to_datetime(d, format='%Y-%m-%d')
+  d = pd.to_datetime(d)
    
   # first row of graphs
   sales_chart(df, "Sales changes")
