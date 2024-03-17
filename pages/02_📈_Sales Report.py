@@ -45,7 +45,7 @@ with st.sidebar:
 if uploaded_file is not None:
   
   df = pd.read_excel(uploaded_file)
-  df['date'] = pd.to_datetime(df['date'])
+  df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
   df.sort_values(by='date')
   df = df.astype({"sales": float, "unit_price": float, "quantity": int})
   
@@ -59,6 +59,8 @@ if uploaded_file is not None:
   (min_date, date.today()),
   format="DD.MM.YYYY"
    )
+  d = [i.strftime("%Y-%m-%d") for i in d]
+  d = pd.to_datetime(d, format='%Y-%m-%d')
    
   # first row of graphs
   sales_chart(df, "Sales changes")
