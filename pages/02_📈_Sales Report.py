@@ -67,13 +67,14 @@ if uploaded_file is not None:
 
   # second row of graphs
   col1, col2, col3 = st.columns(3)
-  with col1:
-     pie_chart(df, "sales", "city", "Sales by city")
+  if d:
+    with col1:
+       pie_chart(df, "sales", "city", "Sales by city")
   
-  with col2:
-     pie_chart(df, "sales", "customer_type", "Sales by customers")
+    with col2:
+       pie_chart(df, "sales", "customer_type", "Sales by customers")
   
-  with col3:
-     pie_chart(df, "sales", "product_line", "Sales by product lines")
+    with col3:
+       pie_chart(df, "sales", "product_line", "Sales by product lines")
 
 
