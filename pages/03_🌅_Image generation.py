@@ -18,10 +18,8 @@ def query(payload):
 prompt = st.text_input('What would you like to draw?', 'Chocolate bar design, cinematic')
 if st.button("Generate image"):
   image_bytes = query({
-	"inputs": f"{prompt}",
-})
-
-image = Image.open(io.BytesIO(image_bytes))
-st.image(image, caption='Prompt result')
+	"inputs": f"{prompt}",})
+  image = Image.open(io.BytesIO(image_bytes))
+  st.image(image, caption='Prompt result')
   
 
