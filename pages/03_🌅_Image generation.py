@@ -7,7 +7,6 @@ from PIL import Image
 #         'Which model would you like to use?',
 #         ('GigaChat', 'Another one (no Russian)'))
 # if option == "GigaChat":
-API_TOKEN = API_TOKEN
 API_URL = "https://api-inference.huggingface.co/models/digiplay/AbsoluteReality_v1.8.1"
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
