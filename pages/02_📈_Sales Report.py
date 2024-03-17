@@ -45,7 +45,7 @@ with st.sidebar:
 if uploaded_file is not None:
   
   df = pd.read_excel(uploaded_file)
-  df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
+  df['date'] = pd.to_datetime(df['date'])
   df.sort_values(by='date')
   df = df.astype({"sales": float, "unit_price": float, "quantity": int})
   
