@@ -62,7 +62,7 @@ if uploaded_file is not None:
   d = [i.strftime("%Y-%m-%d") for i in d]
   d = pd.to_datetime(d)
    
-  if d[2]:
+  if len(d) == 2:
     # first row of graphs
     sales_chart(df, "Sales changes")
 
