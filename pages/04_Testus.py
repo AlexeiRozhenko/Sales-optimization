@@ -1,6 +1,6 @@
 import streamlit as st
 from langchain.chat_models import GigaChat
-from langchain.schema import HumanMessage
+from langchain.schema import ChatMessage
 
 CREDENTIALS = st.secrets["CREDENTIALS"]
 chat = GigaChat(credentials=CREDENTIALS, verify_ssl_certs=False)
@@ -20,8 +20,8 @@ if prompt := st.chat_input("Enter your prompt here"):
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            # response = chat(prompt)
-            response = chat.generate([HumanMessage(content=prompt)])
+            response = chat(st.session_state["messages"])
+            # response = chat.generate([ChatMessage(content=prompt)])
             st.markdown(response.content)
         message = {"role": "assistant", "content": response.content}
     st.session_state.messages.append(message)
