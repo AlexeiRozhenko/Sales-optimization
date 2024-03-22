@@ -19,20 +19,37 @@ for message in st.session_state.messages[1::1]:
     with st.chat_message(message.role):
         st.markdown(message.content)
 
-if prompt := st.chat_input("Enter your prompt here"):
+# if prompt := st.chat_input("Enter your prompt here"):
+#     message = ChatMessage(role="user", content=prompt)
+#     with st.chat_message(message.role):
+#         st.markdown(message.content)
+#     st.session_state.messages.append(message)
+
+#     # message = ChatMessage(role="assistant", content="")
+#     # st.session_state.messages.append(message)
+
+# if st.session_state.messages[-1].role != "assistant":
+#     with st.chat_message("assistant"):
+#         with st.spinner("Thinking..."):
+#             dial = "\n".join([message.content for message in st.session_state.messages])
+#             response = chat(dial)
+#             message = ChatMessage(role="assistant", content=response.content)
+#             st.markdown(message.content)
+#     st.session_state.messages.append(message)
+
+if prompt := st.chat_input():
     message = ChatMessage(role="user", content=prompt)
+    st.session_state.messages.append(message)
+
     with st.chat_message(message.role):
         st.markdown(message.content)
+
+    message = ChatMessage(role="assistant", content="")
     st.session_state.messages.append(message)
 
-    # message = ChatMessage(role="assistant", content="")
-    # st.session_state.messages.append(message)
-
-if st.session_state.messages[-1].role != "assistant":
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            dial = "\n".join([message.content for message in st.session_state.messages])
-            response = chat(dial)
-            message = ChatMessage(role="assistant", content=response.content)
-            st.markdown(message.content)
-    st.session_state.messages.append(message)
+    with st.chat_message(message.role):
+        message_placeholder = st.empty()
+        for chunk in chat.stream(st.session_state.messages):
+            message.content += chunk.content
+            message_placeholder.markdown(message.content + "▌")
+        message_placeholder.markdown(message.content)
