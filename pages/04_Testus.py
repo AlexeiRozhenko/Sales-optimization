@@ -40,13 +40,13 @@ if prompt := st.chat_input("Enter your prompt here"):
     message = ChatMessage(role="user", content=prompt)
     st.session_state["messages"].append(message)
 
-    with st.chat_message(message.role):
+    with st.chat_message("user"):
         st.markdown(message.content)
 
     message = ChatMessage(role="assistant", content="")
     st.session_state["messages"].append(message)
 
-    with st.chat_message(message.role):
+    with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             message_placeholder = st.empty()
             for chunk in chat.stream(st.session_state.messages):
