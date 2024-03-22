@@ -7,7 +7,7 @@ chat = GigaChat(credentials=CREDENTIALS, verify_ssl_certs=False)
 
 # Initialize chat history
 if "message" not in st.session_state:
-    st.session_state.messages = [
+    st.session_state["messages"] = [
         ChatMessage(
             role="system",
             content="Ты - умный ИИ ассистент, который специализируется на экономических, технических вопросах развития шоколадного бизнеса.",
@@ -15,7 +15,7 @@ if "message" not in st.session_state:
         ChatMessage(role="assistant", content="Hello! How can I help you?"),
     ]
 
-for message in st.session_state.messages[1::1]:
+for message in st.session_state["messages"][1::1]:
     with st.chat_message(message.role):
         st.markdown(message.content)
 
@@ -38,13 +38,13 @@ for message in st.session_state.messages[1::1]:
 
 if prompt := st.chat_input():
     message = ChatMessage(role="user", content=prompt)
-    st.session_state.messages.append(message)
+    st.session_state["messages"].append(message)
 
     with st.chat_message(message.role):
         st.markdown(message.content)
 
     message = ChatMessage(role="assistant", content="")
-    st.session_state.messages.append(message)
+    st.session_state["messages"].append(message)
 
     with st.chat_message(message.role):
         with st.spinner("Thinking..."):
