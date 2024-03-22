@@ -36,21 +36,20 @@ for message in st.session_state["messages"][1::1]:
 #             st.markdown(message.content)
 #     st.session_state.messages.append(message)
 
-if prompt := st.chat_input():
+if prompt := st.chat_input("Enter your prompt here):
     message = ChatMessage(role="user", content=prompt)
     st.session_state["messages"].append(message)
 
-    with st.chat_message(message.role):
-        st.markdown(message.content)
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
     message = ChatMessage(role="assistant", content="")
     st.session_state["messages"].append(message)
 
     with st.chat_message(message.role):
         with st.spinner("Thinking..."):
-            st.markdown(message.content)
-            # message_placeholder = st.empty()
-            # for chunk in chat.stream(st.session_state.messages):
-            #     message.content += chunk.content
-            #     message_placeholder.markdown(message.content + "▌")
-            # message_placeholder.markdown(message.content)
+            message_placeholder = st.empty()
+            for chunk in chat.stream(st.session_state.messages):
+                message.content += chunk.content
+                message_placeholder.markdown(message.content + "▌")
+            message_placeholder.markdown(message.content)
