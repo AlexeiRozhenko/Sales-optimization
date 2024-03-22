@@ -47,8 +47,9 @@ if prompt := st.chat_input():
     st.session_state.messages.append(message)
 
     with st.chat_message(message.role):
-        message_placeholder = st.empty()
-        for chunk in chat.stream(st.session_state.messages):
-            message.content += chunk.content
-            message_placeholder.markdown(message.content + "▌")
-        message_placeholder.markdown(message.content)
+        with st.spinner("Thinking..."):
+            message_placeholder = st.empty()
+            for chunk in chat.stream(st.session_state.messages):
+                message.content += chunk.content
+                message_placeholder.markdown(message.content + "▌")
+            message_placeholder.markdown(message.content)
