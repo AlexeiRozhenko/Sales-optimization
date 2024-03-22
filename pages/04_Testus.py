@@ -15,7 +15,7 @@ if "message" not in st.session_state:
         ChatMessage(role="assistant", content="How can I help you?"),
     ]
 
-for message in st.session_state.messages:
+for message in st.session_state.messages[1::1]:
     with st.chat_message(message.role):
         st.markdown(message.content)
 
