@@ -6,7 +6,7 @@ CREDENTIALS = st.secrets["CREDENTIALS"]
 chat = GigaChat(credentials=CREDENTIALS, verify_ssl_certs=False)
 
 # Initialize chat history
-if "message" not in st.session_state:
+if "messages" not in st.session_state:
     st.session_state["messages"] = [
         ChatMessage(
             role="system",
