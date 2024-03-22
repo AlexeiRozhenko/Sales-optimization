@@ -48,7 +48,6 @@ if prompt := st.chat_input():
 
     with st.chat_message(message.role):
         message_placeholder = st.empty()
-        for chunk in chat.stream(st.session_state.messages):
-            message.content += chunk.content
-            message_placeholder.markdown(message.content + " ")
-        message_placeholder.markdown(message.content)
+        responce = st.session_state.messages.invoke({"input": prompt})
+        answer = responce["response"]
+        message_placeholder.markdown(answer)
