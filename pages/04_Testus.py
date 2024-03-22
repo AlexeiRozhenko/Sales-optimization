@@ -12,7 +12,7 @@ if "message" not in st.session_state:
             role="system",
             content="Ты - умный ИИ ассистент, который специализируется на экономических, технических вопросах развития шоколадного бизнеса.",
         ),
-        ChatMessage(role="assistant", content="How can I help you?"),
+        ChatMessage(role="assistant", content="Hello! How can I help you?"),
     ]
 
 for message in st.session_state.messages[1::1]:
@@ -29,9 +29,9 @@ if prompt := st.chat_input():
     message = ChatMessage(role="assistant", content="")
     st.session_state.messages.append(message)
 
-    with st.chat_message(message.role):
-        message_placeholder = st.empty()
-        for chunk in chat.stream(st.session_state.messages):
-            message.content += chunk.content
-            message_placeholder.markdown(message.content + " ")
-        message_placeholder.markdown(message.content)
+if st.session_state.messages[-1]["role"] != "assistant":
+    with st.chat_message("assistant"):
+        with st.spinner("Thinking..."):
+            message = ChatMessage(role="assistant", content="")
+            st.markdown(message.content)
+    st.session_state.messages.append(message)
