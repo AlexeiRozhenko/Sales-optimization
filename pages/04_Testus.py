@@ -26,12 +26,13 @@ if prompt := st.chat_input():
     with st.chat_message(message.role):
         st.markdown(message.content)
 
-    message = ChatMessage(role="assistant", content="")
-    st.session_state.messages.append(message)
+    # message = ChatMessage(role="assistant", content="")
+    # st.session_state.messages.append(message)
 
-if st.session_state.messages[-1]["role"] != "assistant":
+if st.session_state.messages[-1].role != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            message = ChatMessage(role="assistant", content="")
+            response = chat(st.session_state.messages)
+            message = ChatMessage(role="assistant", content=response)
             st.markdown(message.content)
     st.session_state.messages.append(message)
