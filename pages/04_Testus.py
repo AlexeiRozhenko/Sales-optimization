@@ -16,22 +16,22 @@ if "messages" not in st.session_state:
     ]
 
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    with st.chat_message(message.role):
+        st.markdown(message.content)
 
 if prompt := st.chat_input():
     message = ChatMessage(role="user", content=prompt)
     st.session_state.messages.append(message)
 
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    with st.chat_message(message.role):
+        st.markdown(message.content)
 
     message = ChatMessage(role="assistant", content="")
     st.session_state.messages.append(message)
 
-    with st.chat_message(message["role"]):
+    with st.chat_message(message.role):
         message_placeholder = st.empty()
         for chunk in chat.stream(st.session_state.messages):
             message["content"] += chunk.content
-            message_placeholder.markdown(message["content"] + " ")
-        message_placeholder.markdown(message["content"])
+            message_placeholder.markdown(message.content + " ")
+        message_placeholder.markdown(message.content)
