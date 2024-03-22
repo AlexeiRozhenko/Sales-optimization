@@ -36,7 +36,7 @@ for message in st.session_state["messages"][1::1]:
 #             st.markdown(message.content)
 #     st.session_state.messages.append(message)
 
-if prompt := st.chat_input("Enter your prompt here):
+if prompt := st.chat_input("Enter your prompt here"):
     message = ChatMessage(role="user", content=prompt)
     st.session_state["messages"].append(message)
 
