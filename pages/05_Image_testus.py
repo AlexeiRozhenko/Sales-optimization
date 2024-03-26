@@ -5,6 +5,9 @@ import time
 # import io
 # from PIL import Image
 
+KANDINSKY_API = st.secrets["KANDINSKY_API"]
+KANDINSKY_SECRET = st.secrets["KANDINSKY_SECRET"]
+
 class Text2ImageAPI:
 
     def __init__(self, url, api_key, secret_key):
