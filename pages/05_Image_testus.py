@@ -53,7 +53,7 @@ class Text2ImageAPI:
 
 
 if __name__ == '__main__':
-    api = Text2ImageAPI('https://api-key.fusionbrain.ai/', 'KANDINSKY_API', 'KANDINSKY_SECRET')
+    api = Text2ImageAPI('https://api-key.fusionbrain.ai/', KANDINSKY_API, KANDINSKY_SECRET)
     model_id = api.get_model()
     uuid = api.generate(f"{prompt}", model_id)
     images = api.check_generation(uuid)
