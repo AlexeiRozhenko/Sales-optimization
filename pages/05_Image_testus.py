@@ -51,7 +51,7 @@ class Text2ImageAPI:
             attempts -= 1
             time.sleep(delay)
     
-    def image_generation(image):
+    def image_generation(self, image):
         image_base64 = image[0]
         image_data = base64.b64decode(image_base64)
         with open("prompt_result.jpg", "wb") as file:
@@ -67,4 +67,4 @@ if __name__ == '__main__':
 		image = api.check_generation(uuid)
 		file = api.image_generation(image)
 		st.image(file, caption='Prompt result')
-	
+
