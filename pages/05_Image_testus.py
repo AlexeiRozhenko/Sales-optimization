@@ -2,8 +2,8 @@ import streamlit as st
 import requests
 import json
 import time
-# import io
-# from PIL import Image
+import io
+from PIL import Image
 
 KANDINSKY_API = st.secrets["KANDINSKY_API"]
 KANDINSKY_SECRET = st.secrets["KANDINSKY_SECRET"]
