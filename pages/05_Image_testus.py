@@ -4,6 +4,7 @@ import json
 import time
 import io
 from PIL import Image
+import base64
 
 KANDINSKY_API = st.secrets["KANDINSKY_API"]
 KANDINSKY_SECRET = st.secrets["KANDINSKY_SECRET"]
@@ -64,6 +65,6 @@ if __name__ == '__main__':
 		model_id = api.get_model()
 		uuid = api.generate(f"{prompt}", model_id)
 		image = api.check_generation(uuid)
-		file = image_generation(image)
+		file = api.image_generation(image)
 		st.image(file, caption='Prompt result')
 	
