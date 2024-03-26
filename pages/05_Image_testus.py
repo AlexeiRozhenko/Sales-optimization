@@ -47,18 +47,23 @@ class Text2ImageAPI:
             data = response.json()
             if data['status'] == 'DONE':
                 return data['images']
-
             attempts -= 1
             time.sleep(delay)
-
+    
+    def image_generation(image):
+        image_base64 = image[0]
+        image_data = base64.b64decode(image_base64)
+        with open("prompt_result.jpg", "wb") as file:
+            file.write(image_data)
+            return file
 
 if __name__ == '__main__':
 	prompt = st.text_input('What would you like to draw?', 'Chocolate bar design, cinematic')
 	if prompt and st.button("Generate image"):
-		api = Text2ImageAPI('https://api-key.fusionbrain.ai/', KANDINSKY_API, KANDINSKY_SECRET)
+        api = Text2ImageAPI('https://api-key.fusionbrain.ai/', KANDINSKY_API, KANDINSKY_SECRET)
 		model_id = api.get_model()
 		uuid = api.generate(f"{prompt}", model_id)
 		image = api.check_generation(uuid)
-		st.markdown(image)
-		# st.image(image, caption='Prompt result')
+		file = image_generation(image)
+		st.image(file, caption='Prompt result')
 	
