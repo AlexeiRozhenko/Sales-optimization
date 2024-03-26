@@ -53,19 +53,10 @@ class Text2ImageAPI:
 
 
 if __name__ == '__main__':
-    api = Text2ImageAPI('https://api-key.fusionbrain.ai/', KANDINSKY_API, KANDINSKY_SECRET)
-    model_id = api.get_model()
-    uuid = api.generate(f"{prompt}", model_id)
-    images = api.check_generation(uuid)
-    print(images)
-
-# def query(payload):
-# 	response = requests.post(API_URL, headers=headers, json=payload)
-# 	return response.content
-	
-# prompt = st.text_input('What would you like to draw?', 'Chocolate bar design, cinematic')
-# if st.button("Generate image"):
-#   image_bytes = query({
-# 	"inputs": f"{prompt}",})
-#   image = Image.open(io.BytesIO(image_bytes))
-#   st.image(image, caption='Prompt result')
+    prompt = st.text_input('What would you like to draw?', 'Chocolate bar design, cinematic')
+    if st.button("Generate image"):
+	api = Text2ImageAPI('https://api-key.fusionbrain.ai/', KANDINSKY_API, KANDINSKY_SECRET)
+	model_id = api.get_model()
+	uuid = api.generate(f"{prompt}", model_id)
+	image = api.check_generation(uuid)
+	st.image(image, caption='Prompt result')
