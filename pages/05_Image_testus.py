@@ -59,5 +59,6 @@ if __name__ == '__main__':
 		model_id = api.get_model()
 		uuid = api.generate(f"{prompt}", model_id)
 		image = api.check_generation(uuid)
-		st.image(image, caption='Prompt result')
+		st.markdown(image)
+		# st.image(image, caption='Prompt result')
 	
