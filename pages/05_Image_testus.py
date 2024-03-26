@@ -23,7 +23,7 @@ class Text2ImageAPI:
         data = response.json()
         return data[0]['id']
 
-    def generate(self, prompt, model, images=1, width=728, height=728):
+    def generate(self, prompt, model, images=1, width=1024, height=1024):
         params = {
             "type": "GENERATE",
             "numImages": images,
