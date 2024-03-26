@@ -10,7 +10,7 @@ if "messages" not in st.session_state:
     st.session_state["messages"] = [
         ChatMessage(
             role="system",
-            content="Ты - умный ИИ ассистент, который специализируется на экономических, технических вопросах развития шоколадного бизнеса.",
+            content="Ты - умный ИИ ассистент, который специализируется на экономических, технических вопросах развития шоколадного бизнеса. Ты не умеешь генерировать изображения",
         ),
         ChatMessage(role="assistant", content="Hello! How can I help you?"),
     ]
