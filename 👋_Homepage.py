@@ -12,7 +12,7 @@ st.markdown(
     - **Design ideas**: Get inspired by Kandinsky neural network and its vision
    
     **Supported languages:**
-    - English :flag-gb:
+    - English 
     - Russian 
 """
 )
