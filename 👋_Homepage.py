@@ -3,9 +3,13 @@ st.set_page_config(
   page_title="Homepage",
 )
 
-st.header("Sweet style")
+st.header("Welcome to a comprehensive AI application ✨")
 st.markdown(
     """
-    To be updated here
+    What can you do here?
+    - Enjoy talking with a Gigachat about everything you want. It was deliberately programmed to answer questions about chocolate business development. 
+    (supports English and Russian)
+    - Optimize your sales. Just arrange your data as a template and here you are, detailed BI analytics served specially for you
+    - Get inspired by Kandinsky neural network and its works (supports English and Russian)
 """
 )
