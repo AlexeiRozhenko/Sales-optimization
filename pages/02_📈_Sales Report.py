@@ -6,6 +6,8 @@ from datetime import date
 
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
+
+uploaded_file = None
 if uploaded_file is None:
   st.markdown("First things firts, please download a sample file and upload an XLSX with your sales")
 
