@@ -13,6 +13,6 @@ st.markdown(
    
     **Supported languages:**
     - English
-    - Russian
+    - Russian 🇷🇺
 """
 )
