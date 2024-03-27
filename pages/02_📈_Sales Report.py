@@ -9,7 +9,7 @@ st.header("Sales report")
 
 uploaded_file = None
 if uploaded_file is None:
-  st.markdown("First things firts, please download a sample file and upload an XLSX with your sales")
+  st.markdown("Please download a sample file and upload an XLSX with your sales")
 
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum().reset_index()
