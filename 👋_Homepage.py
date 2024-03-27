@@ -3,7 +3,7 @@ st.set_page_config(
   page_title="Homepage",
 )
 
-st.header("Welcome to a comprehensive AI application ✨")
+st.header("Comprehensive AI application ✨")
 st.markdown(
     """
     What can you do here?
