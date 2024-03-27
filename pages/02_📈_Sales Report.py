@@ -7,10 +7,6 @@ from datetime import date
 st.set_page_config(page_title="Sales report", page_icon="📈")
 st.header("Sales report")
 
-uploaded_file = None
-if uploaded_file is None:
-  st.markdown("Please download a sample file and upload an XLSX with your sales")
-
 def sales_chart(df, title):
   df_new = df.groupby([df['date']]).sum().reset_index()
   filter = (df_new["date"] >= d[0]) & (df_new["date"] <= d[1])
