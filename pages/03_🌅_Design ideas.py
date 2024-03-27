@@ -61,10 +61,11 @@ class Text2ImageAPI:
 if __name__ == '__main__':
 	prompt = st.text_input('What would you like to draw?', 'Chocolate bar design, cinematic')
 	if prompt and st.button("Generate image"):
-		api = Text2ImageAPI('https://api-key.fusionbrain.ai/', KANDINSKY_API, KANDINSKY_SECRET)
-		model_id = api.get_model()
-		uuid = api.generate(f"{prompt}", model_id)
-		image = api.check_generation(uuid)
-		file = api.image_generation(image)
-		st.image("prompt_result.jpg", caption='Prompt result')
+		with st.spinner(text="Magic happening"):
+			api = Text2ImageAPI('https://api-key.fusionbrain.ai/', KANDINSKY_API, KANDINSKY_SECRET)
+			model_id = api.get_model()
+			uuid = api.generate(f"{prompt}", model_id)
+			image = api.check_generation(uuid)
+			file = api.image_generation(image)
+			st.image("prompt_result.jpg", caption='Prompt result')
 
